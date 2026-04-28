@@ -1,11 +1,14 @@
-# Use Python 3.6 or later as a base image
+FROM python:3.10-slim
 
-# Copy contents into image
- 
-# Install pip dependencies from requirements
+WORKDIR /app
 
-# Set YOUR_NAME environment variable
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the correct port
+COPY app.py .
 
-# Create an entrypoint
+ENV YOUR_NAME=Queen
+
+EXPOSE 5500
+
+CMD ["python", "app.py"]
