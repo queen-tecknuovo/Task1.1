@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('Task1') {
-                    sh 'docker-compose build'
+                    sh 'docker compose build'
                 }
             }
         }
@@ -14,8 +14,8 @@ pipeline {
             steps {
                 dir('Task1') {
                     sh '''
-                      docker-compose down || true
-                      docker-compose up -d
+                      docker compose down || true
+                      docker compose up -d
                     '''
                 }
             }
